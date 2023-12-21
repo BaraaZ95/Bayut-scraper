@@ -221,6 +221,11 @@ class BayutSpiderSpider(scrapy.Spider):
 
     def parse_property(self, response):
         property_information_dict = {}
+        currency = response.css('span[aria-label="Currency"]::text').get()
+        price = response.css('span[aria-label="Price"]::text').get()
+        frequency = response.css('span[aria-label="Frequency"]::text').get()
+        property_information_dict["property_price"] = currency + price
+        property_information_dict["property_payment_frequency"] = frequency
         property_information_dict["property_url"] = response.url
         property_price = response.xpath(
             '//div[@aria-label="Property basic info"]/div/text()'
