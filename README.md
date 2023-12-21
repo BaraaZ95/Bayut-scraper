@@ -11,4 +11,5 @@ pip install -r requirements
 scrapy crawl bayut_spider
 ```
 Note: 
-If you want to write the data to mongodb, enter your mongodb connection and db info in the settings.py file
+- If you want to write the data to mongodb, enter your mongodb connection and db info in the settings.py file
+- Example of the output is in output.json file
